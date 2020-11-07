@@ -1,0 +1,141 @@
+{% extends 'home/layout.html' %}
+  {% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Self Assesment </title>
+
+  {% endblock %}
+{% block body %}
+
+  <div class="container-fluid px-0">
+        <form action="/home/selfassesment/">
+       <div class="row mx-0 pic">
+            <div class="col-6 px-0">
+            <div class="container">
+              <br>    
+             <h6>
+              Give us your 2 min
+              </h6>
+              <h1 class="pic-content"><span>Take a quick Self Assesment Test</span></h1>
+              <div class="container">
+             
+              <div class="card" style="width: 38rem; margin: ; height:250px; auto;">
+              <div class="card-body">
+              <h2 class="card-title">Enter your Details:</h2>
+              <p class="card-text">  
+              <div class="form-group">
+                <div class="input-group mb-2">
+                <div class="input-group-prepend"> <div class="input-group-text"><i class="fa fa-user"></i></div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name">
+                </div>
+                </div>
+                <div class="form-group">
+                <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-phone"></i></div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number">
+                </div>
+                </div>
+                 <div class="form-group">
+                <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="age" placeholder="Age">
+                </div>
+                </div>
+          </div>
+    </div>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+              <div class="card" style="width: 79rem; margin:0 auto ; height:700px;">
+              <div class="card-body">
+              <h2 class="card-title">Answer the following Questions Correctly:</h2>
+              <p class="card-text">  
+              <label for="disease" class="col-form-label">1. Are you Experiencing any of the following symptoms:</label>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Fever" value="Fever">
+                  <label class="custom-control-label" for="Fever">Fever</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Difficulty in Breathing" value="Difficulty in Breathing">
+                  <label class="custom-control-label" for="Difficulty in Breathing">Difficulty in Breathing</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Loss" value="Loss of senses of smell and taste">
+                  <label class="custom-control-label" for="Loss">Loss of senses of smell and taste</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease" id="None" value="None of the above">
+                  <label class="custom-control-label" for="None">None of the above</label>
+                </div>
+                <br>
+              <label for="disease1" class="col-form-label">2. Have you ever had any of the following:</label>
+              <br>
+              <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Diabetes" value="Diabetes">
+                  <label class="custom-control-label" for="Diabetes">Diabetes</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Hyper" value="Hypertension">
+                  <label class="custom-control-label" for="Hyper">Hypertension</label>
+                </div>
+                
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Heart" value="Heart Disease">
+                  <label class="custom-control-label" for="Heart">Heart Disease</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="None of" value="None of the above">
+                  <label class="custom-control-label" for="None of">None of the above</label>
+                </div>
+                <br>
+              <label for="disease2" class="col-form-label">3. Have you traveled anywhere internationally in the last 28-45 days?</label>
+              <br>
+              <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease2" id="Yes" value="Yes">
+                  <label class="custom-control-label" for="Yes">Yes</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease2" id="No" value="No">
+                  <label class="custom-control-label" for="No">No</label>
+                </div>
+               <br>
+              <label for="disease3" class="col-form-label">4. Which of the following apply to you?</label>
+              <br>
+              <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="I have" value="I have recently interacted or lived with someone who has tested positive for COVID -19">
+                  <label class="custom-control-label" for="I have">I have recently interacted or lived with someone who has tested positive for COVID -19</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="I am" value="I am a healthcare worker">
+                  <label class="custom-control-label" for="I am">I am a healthcare worker</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="Above" value="None of the above">
+                  <label class="custom-control-label" for="Above">None of the above</label>
+                </div>
+                <br>
+                <br>
+						<input class="btn servicc" type="submit" value="SEARCH">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+            </p>
+          </div>
+              </form>
+        </div>
+      
+  {% endblock %}

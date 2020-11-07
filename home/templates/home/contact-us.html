@@ -1,0 +1,62 @@
+{% extends 'home/layout.html' %}
+  {% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Contact Us </title>
+
+  {% endblock %}
+{% block body %}
+  <section class="contact-us" id="contact-us">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-xl-6">
+        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_R16e80.json" background="transparent"  speed="1"  style="width: 500px; height: 300px;" loop autoplay></lottie-player>
+      </div>
+      <div class="col-xl-6">
+        <h1 class="feedback">Contact Us</h1>
+<form action="/contact-us" method="POST">
+<div class="form-group">
+<div class="input-group mb-2">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fa fa-user"></i></div>
+</div>
+<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[name]" placeholder="Name">
+</div>
+</div>
+<div class="form-group">
+<div class="input-group mb-2">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fa fa-envelope"></i></div>
+</div>
+<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[companyName]" placeholder="Email Adress">
+</div>
+</div>
+<div class="form-group">
+<div class="input-group mb-2">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fa fa-phone"></i></div>
+</div>
+<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[designation]" placeholder="Phone Number">
+</div>
+</div>
+<div class="form-group">
+<div class="input-group mb-2">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fa fa-edit"></i></div>
+</div>
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="testimonials[testimonial]" placeholder="Suggestions/Complaints/Feedback"></textarea>
+</div>
+</div>
+<button type="submit" class="buttt">Submit</button>
+<br>
+<br>
+</form>       
+      </div>
+    </div>
+    
+
+
+  </div>
+
+  {% endblock %}

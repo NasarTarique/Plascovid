@@ -1,0 +1,254 @@
+body{
+    background: #f5d9d5;
+    font-family: "Nunito", sans-serif;
+}
+
+#ban{
+    font-size: 8rem;
+    text-align: center;
+
+}
+.font_4
+{
+    font: normal normal normal 80px/1.6em 'arial black',arial-w01-black,arial-w02-black,'arial-w10 black',sans-serif;
+    color: #000066;
+    text-align: center;
+    padding-bottom: 15px;
+   
+}
+
+.fa-tint {
+    color: red;
+}
+
+.nav {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+
+}
+
+hr {
+    width: 500px;
+    border-top: 3px solid #000000;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#htracker {
+    font-family: 'Secular One', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.carousel-inner img {
+    height: 440px;
+    width: 1280px;
+}
+.card {
+    margin: 0;
+}
+.buttt {
+    border: 1px solid #fff;
+    background-color:   #FF0000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 30px;
+    width: fit-content;
+    text-align: center;
+    letter-spacing: 3px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-decoration: none;
+    color: #0D4F8B;
+    font-weight: 900;
+
+}
+
+footer {
+    height: 200px;
+    background-color: #222f4b;
+    padding: 20px;
+}
+.sub-footer {
+    background-color: white;
+    margin: 0;
+    text-align: center;
+    color: #222f4b;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+@media (min-width: 1200px)
+    .sub-footer p {
+    padding: 10px;
+    font-size: 10px;
+    margin: 0;
+}
+.foot {
+    text-align: center;
+    color: white;
+}
+
+.foott {
+     width: 400px;
+    border-top: 3px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+.fooot{
+    text-align: center;
+    color: white;
+}
+.feedback {
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3.0rem;
+    text-transform: uppercase;
+
+}
+form 
+{
+    display: block;
+    margin-top: 0em;
+}
+
+.pic 
+{
+    display:block;
+    background: url(https://image.freepik.com/free-photo/top-view-world-heart-day-stethoscope-with-copy-space_23-2148630953.jpg) no-repeat center/cover;
+    height: 700px;
+
+}
+
+h6 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 900;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+}
+.pic-content 
+{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 42px;
+    text-align: center;
+}
+
+p
+{
+    margin-bottom: 0;
+}
+.news 
+{
+    width: 160px
+}
+
+.news-scroll a 
+{
+    text-decoration: none
+}
+
+.dot 
+{
+    height: 6px;
+    width: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 2px !important;
+    background-color: rgb(207, 23, 23);
+    border-radius: 50%;
+    display: inline-block
+}
+.PDonation
+{
+    font-size: 200%;
+    font-weight: 900;
+    margin-left: 100px;
+}
+.donor h1 {
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.butt {
+    border: 1px solid #fff;
+    background-color:   #FF0000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 10px;
+    width: fit-content;
+    text-align: center;
+    letter-spacing: 3px;
+    border-radius: 25px;
+    font-size: 10px;
+    text-decoration: none;
+    color: #0D4F8B;
+    font-weight: 900;
+    cursor: pointer;
+
+}
+.register h1 {
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.register h4 {
+    font-family: 'Secular One', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.reg {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.servic{
+    background-color: crimson;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 3px;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0,5);
+    font-size: 10px;
+    text-decoration: none;
+    color: wheat;
+    font-weight: 900;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-left:25px;
+}
+.servicc{
+    background-color: crimson;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 3px;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0,5);
+    font-size: 10px;
+    text-decoration: none;
+    color: wheat;
+    font-weight: 900;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.Hospitals{
+		display:grid;
+		margin-top:1em;
+		align-self:center;
+		max-width:1200px;
+		align-items:center;
+		justify-content:center;
+}

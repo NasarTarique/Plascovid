@@ -1,0 +1,34 @@
+{% extends 'home/layout.html' %}
+  {% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Register</title>
+
+  {% endblock %}
+{% block body %}
+  <section class="register" id="register" >
+    <div class="container mb-5 mt-5">
+        <h1>REGISTER NOW</h1>
+        <div class="card" style="width: 70rem; margin: 0 auto;">
+            <div class="card-body">
+                <h4>Kindly read the following instructions before saving the life of others</h4>
+                <ul class="reg">
+                    <li>YOU are between 18-60 years of age.</li>
+                    <li>YOU were a COVID Positive patient.</li>
+                    <li>YOU are now negative after infection</li>
+                    <li>You have now been cured for 14 days</li>
+                  </ul>  
+                  <h4>Terms and Condition</h4>
+                  <ul class="reg">
+                    <li>Your information will be available on our portal.</li>
+                    <li>Your personal details will be shared with others.</li>
+                    <li>Your phone number will be avaiable on our website so that people can contact you</li>
+                  </ul>
+                  <input class="btn servic" type="submit" value="Register as Donor">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
