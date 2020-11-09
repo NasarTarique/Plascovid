@@ -27,22 +27,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ml-auto">
           <li class = "nav-item active mx-3 mx-xl-2">
-            <a class="nav-link" href="file:///D:/Udemy/Plascovid/Starter/index.html">Home</a>
+				  <a class="nav-link" href="{% url 'index' %}">Home</a>
           </li>
           <li class = "nav-item active mx-3 mx-xl-2">
-            <a href="#htracker" class="nav-link">Hospital Tracker</a>
+				  <a href="{% url 'index' %}" class="nav-link">Hospital Tracker</a>
           </li>
           <li class = "nav-item active mx-3 mx-xl-2">
-            <a class="nav-link" href="">Plasma Donation</a>
+				  <a class="nav-link" href="{% url 'register' %}">Plasma Donation</a>
           </li>
           <li class = "nav-item active mx-3 mx-xl-2">
-            <a class="nav-link" href="file:///D:/Udemy/Plascovid/Starter/self-assesment1.html">Self Assesment</a>
+				  <a class="nav-link" href="{% url 'selfassesment' %}">Self Assesment</a>
           </li>
            <li class = "nav-item active mx-3 mx-xl-2">
             <a class="nav-link" href="">About us</a>
           </li>
            <li class = "nav-item active mx-3 mx-xl-2">
-            <a class="nav-link" href="file:///D:/Udemy/Plascovid/Starter/contact-us.html">Contact us</a>
+				   <a class="nav-link" href="{% url 'contact'%}">Contact us</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">

@@ -1,0 +1,22 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Donor Form</title>
+
+  {% endblock %}
+
+{%  block body  %}
+<div class="message" style="height:100vh;">
+<div class="card text-center">
+  <div class="card-body">
+<h5 class="card-title">You're Awesome</h5>
+    <h5 class="card-title">Thank You for Applying as a Donor </h5>
+	<p class="card-text">We will notify if there are people who need help or you could come to our site and see if you can help someone out </p>
+	<p class="card-text">We need more people like you in these trying times</p>
+    <a href="#" class="btn btn-primary">Go Back</a>
+  </div>
+</div></div>
+{% endblock %}
+

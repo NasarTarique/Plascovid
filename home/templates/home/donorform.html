@@ -7,18 +7,22 @@
 
   {% endblock %}
 {% block body %}
+{% if method  == 'post' %}
+<h1>This is a redirection</h1>
+{% endif %}
   <section class="donor" id="donor" >
     <div class="container mb-5 mt-5">
         <h1>DONOR REGISTRATION FORM</h1>
         <div class="card" style="width: 50rem; margin: 0 auto;">
             <div class="card-body">
-                <form action="/contact-us" method="POST">
+					<form action="{% url 'submissions' %}" method="POST">
+							{% csrf_token %}
                     <div class="form-group row">
                       <div class="col-12 col-md-2 col-form-label">
                         <label for="name" class="col-form-label">Name:</label>
                       </div>
                       <div class="col-12 col-md-10 pt-2">
-                        <input  required type="text" class="form-control" id="name">
+                        <input  required type="text" class="form-control" name="name" id="name">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -26,14 +30,14 @@
                         <label for="phone" class="col-form-label">Mobile:</label>
                       </div>
                       <div class="col-12 col-md-10 pt-2">
-                        <input required type="tel" class="form-control" id="phone">
+                        <input required type="tel" class="form-control" id="phone" name="phone">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-12 col-md-2 col-form-label">
                         <label for="age" class="col-form-label">Age:</label>
                       </div>
-                      <div class="col-12 col-md-10 pt-2"> <input required type="number" class="form-control" id="age">
+                      <div class="col-12 col-md-10 pt-2"> <input required type="number" class="form-control" id="age" name="age">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -41,7 +45,7 @@
                         <label for="Address" class="col-form-label">Address:</label>
                       </div>
                       <div class="col-12 col-md-10 pt-2">
-                        <input required type="text" class="form-control" id="Address">
+                        <input required type="text" class="form-control" id="Address" name="address">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -49,7 +53,7 @@
                         <label for="city" class="col-form-label">City:</label>
                       </div>
                       <div class="col-12 col-md-10 pt-2">
-                        <input required type="text" class="form-control" id="city">
+                        <input required type="text" class="form-control" id="city" name="city">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -57,7 +61,7 @@
                         <label for="blood" class="col-form-label">Blood Group:</label>
                       </div>
                       <div class="col-12 col-md-10 pt-2">
-                        <input required type="text" class="form-control" id="blood">
+                        <input required type="text" class="form-control" id="blood" name="blood">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -66,15 +70,15 @@
                       </div>
                       <div class="col-12 col-md-8 pt-3">
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="sex" id="male" value="male">
+                          <input class="custom-control-input" required type="radio" name="sex" id="male" value="M">
                           <label class="custom-control-label" for="male">Male</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="sex" id="female" value="female">
+                          <input class="custom-control-input" required type="radio" name="sex" id="female" value="F">
                           <label class="custom-control-label" for="female">Female</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="sex" id="other" value="other">
+                          <input class="custom-control-input" required type="radio" name="sex" id="other" value="O">
                           <label class="custom-control-label" for="other">Others</label>
                         </div>
                       </div>
@@ -85,11 +89,11 @@
                       </div>
                       <div class="col-12 col-md-8 pt-3">
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="covid" id="yes" value="yes">
+                          <input class="custom-control-input" required type="radio" name="covid" id="yes" value="Y">
                           <label class="custom-control-label" for="yes">Yes</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="covid" id="no" value="no">
+                          <input class="custom-control-input" required type="radio" name="covid" id="no" value="N">
                           <label class="custom-control-label" for="no">No</label>
                         </div>
                       </div>
@@ -99,7 +103,7 @@
                         <label for="date" class="col-form-label">Date of Screening:</label>
                       </div>
                       <div class="col-12 col-md-8 pt-2">
-                        <input required type="date" class="form-control" id="date">
+                        <input required type="date" class="form-control" id="date" name="date">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -108,11 +112,11 @@
                       </div>
                       <div class="col-12 col-md-8 pt-3">
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="plasma" id="ye" value="ye">
+                          <input class="custom-control-input" required type="radio" name="plasma" id="ye" value="Y">
                           <label class="custom-control-label" for="ye">Yes</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                          <input class="custom-control-input" required type="radio" name="plasma" id="n" value="n">
+                          <input class="custom-control-input" required type="radio" name="plasma" id="n" value="N">
                           <label class="custom-control-label" for="n">No</label>
                         </div>
                       </div>
