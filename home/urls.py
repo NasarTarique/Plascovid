@@ -8,5 +8,7 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('donorform', views.donor, name="donorform"),
     path('register', views.register, name="register"),
-    path('submissions', views.submissions, name='submissions')
+    path('submissions', views.submissions, name='submissions'),
+    path('donorinfo', views.donorinfo, name='donorinfo'),
+    path('userform', views.userform, name='userform'),
 ]

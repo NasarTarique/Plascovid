@@ -25,12 +25,23 @@ class Donors(models.Model):
         ("N", "No")
     ]
 
+    bloodgroup = [
+        ("A+", "A+"),
+        ("A-", "A-"),
+        ("AB+", "AB+"),
+        ("AB-", "AB-"),
+        ("B+", "B+"),
+        ("B-", "B-"),
+        ("O+", "O+"),
+        ("O-", "O-")
+    ]
+
     donorName = models.CharField(max_length=50)
     donorMobile = models.CharField(max_length=15)
     donorAge = models.IntegerField()
     donorAddress = models.TextField(max_length=150)
     donorCity = models.CharField(max_length=30)
-    donorBloodgroup = models.CharField(max_length=4)
+    donorBloodgroup = models.CharField(max_length=3, choices=bloodgroup)
     donorSex = models.CharField(max_length=1, choices=sex)
     donorCovidrecord = models.CharField(max_length=1, choices=status)
     donorScreening = models.DateField()
