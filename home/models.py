@@ -46,3 +46,28 @@ class Donors(models.Model):
     donorCovidrecord = models.CharField(max_length=1, choices=status)
     donorScreening = models.DateField()
     donorStatus = models.CharField(max_length=1, choices=status)
+
+
+class Receivers(models.Model):
+
+    sex = [
+        ('M', "Male"),
+        ('F', "Female"),
+        ('O', "Others")
+    ]
+
+    status = [
+        ("Y", "Yes"),
+        ("N", "No")
+    ]
+
+    bloodgroup = [
+        ("A+", "A+"),
+        ("A-", "A-"),
+        ("AB+", "AB+"),
+        ("AB-", "AB-"),
+        ("B+", "B+"),
+        ("B-", "B-"),
+        ("O+", "O+"),
+        ("O-", "O-")
+    ]

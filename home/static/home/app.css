@@ -12,8 +12,7 @@ body{
 {
     font: normal normal normal 80px/1.6em 'arial black',arial-w01-black,arial-w02-black,'arial-w10 black',sans-serif;
     color: #000066;
-    text-align: center;
-    padding-bottom: 15px;
+    text-align: center; padding-bottom: 15px;
    
 }
 
@@ -236,13 +235,27 @@ p
     margin-top: 10px;
     text-align: center;
     letter-spacing: 3px;
-    box-shadow: 0px 10px 40px rgba(0,0,0,0,5);
     font-size: 10px;
     text-decoration: none;
     color: wheat;
     font-weight: 900;
     margin-bottom: 10px;
     cursor: pointer;
+}
+.receiver h1 {
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.receiver .form-group {
+    font-family: 'Secular One', sans-serif;
+}
+.card {
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
 }
 .Hospitals{
 		display:grid;

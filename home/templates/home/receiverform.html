@@ -1,0 +1,107 @@
+{% extends 'home/layout.html' %}
+  {% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Receivers form</title>
+
+  {% endblock %}
+  {% block  body %}
+  <section class="receiver" id="receiver" >
+    <div class="container mb-5 mt-5">
+        <h1>RECEIVER REGISTRATION FORM</h1>
+        <div class="card" style="width: 50rem; margin: 0 auto;">
+            <div class="card-body">
+                <form action="/reeceiver" method="POST">
+                    <div class="form-group row">
+                      <div class="col-12 col-md-3 col-form-label">
+                        <label for="name" class="col-form-label">Name of the Patient:</label>
+                      </div>
+                      <div class="col-12 col-md-9 pt-2">
+                        <input  required type="text" class="form-control" id="name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-12 col-md-3 col-form-label">
+                        <label for="phone" class="col-form-label">Mobile Number of Patient:</label>
+                      </div>
+                      <div class="col-12 col-md-9 pt-2">
+                        <input required type="tel" class="form-control" id="phone">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-12 col-md-3 col-form-label">
+                        <label for="age" class="col-form-label">Age of the Patient:</label>
+                      </div>
+                      <div class="col-12 col-md-9 pt-2">
+                        <input required type="number" class="form-control" id="age">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-12 col-md-3 col-form-label">
+                        <label for="Hospital" class="col-form-label">Name of the Hospital:</label>
+                      </div>
+                      <div class="col-12 col-md-9 pt-2">
+                        <input required type="text" class="form-control" id="Hospital">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                          <label for="Address" class="col-form-label">Address of the Patient:</label>
+                        </div>
+                        <div class="col-12 col-md-9 pt-2">
+                          <input required type="text" class="form-control" id="Address">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                          <label for="City" class="col-form-label">City:</label>
+                        </div>
+                        <div class="col-12 col-md-9 pt-2">
+                          <input required type="text" class="form-control" id="City">
+                        </div>
+                      </div>
+                    <div class="form-group row">
+                      <div class="col-12 col-md-3 col-form-label">
+                        <label for="blood" class="col-form-label">Required Blood Group:</label>
+                      </div>
+                      <div class="col-12 col-md-9 pt-2">
+                        <input required type="text" class="form-control" id="blood">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                          <label for="mname" class="col-form-label">Name of the person filling the form:</label>
+                        </div>
+                        <div class="col-12 col-md-9 pt-2">
+                          <input required type="text" class="form-control" id="mname">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                          <label for="mphone" class="col-form-label">Mobile Number:</label>
+                        </div>
+                        <div class="col-12 col-md-9 pt-2">
+                          <input required type="tel" class="form-control" id="mphone">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                            <label for="mphone" class="col-form-label">Upload the Hospital Prescription:</label>
+                        </div>
+                        <div class="col-12 col-md-9 col-form-label">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div>
+                      </div>
+                    <input class="btn servicc" type="submit" value="Submit">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  {% endblock %}

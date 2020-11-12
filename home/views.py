@@ -10,7 +10,7 @@ from . import config
 
 # Create your views here.
 
-
+# home page
 def index(request):
     if request.method == 'POST':
         query = SearchQuery(request.POST.get('query'))
@@ -22,7 +22,7 @@ def index(request):
         })
     return render(request, "home/index.html")
 
-
+# self assement page
 def selfassesment(request):
     if request.method == 'POST':
         return render(request, "home/self-assesment1.html", {
@@ -30,15 +30,34 @@ def selfassesment(request):
         })
     return render(request, "home/self-assesment1.html")
 
-
+# contact page 
 def contact(request):
     return render(request, "home/contact-us.html")
 
-
+# register for donor
 def register(request):
-    return render(request, "home/register.html")
+    return render(request, "home/register.html", {
+        'receivers': False
+    })
+
+# register as recievers 
+def rregister(request):
+    return render(request, "home/register.html", {
+        'receivers':True
+    })
 
 
+def receiverform(request):
+    if request.method == 'POST':
+        return render(request, "home/info.html", {
+            'receivers': True
+        }) 
+    return render(request, "home/receiverform.html")
+
+# display donor form 
+def donorform(request):
+    return render(request, "home/donorform.html")
+# after submissions of donor form
 def submissions(request):
     if request.method == 'POST':
         Donor = Donors.objects.create(
@@ -55,15 +74,10 @@ def submissions(request):
 
         )
         Donor.save()
-        return render(request, "home/donors.html", {
-            'Donors': Donors.objects.all()
-        })  
+        return render(request, "home/donors.html")  
 
 
-def donor(request):
-    return render(request, "home/donorform.html")
-
-
+# displaying donor data
 def donorinfo(request):
     if request.method == 'POST':
         query = SearchQuery(request.POST.get('region')) & SearchQuery(request.POST.get('bloodgroup'))
@@ -77,6 +91,7 @@ def donorinfo(request):
     })
 
 
+# Creation of account 
 def userform(request):
     if request.method == 'POST':
         if User.objects.filter(username=request.POST.get('username')):

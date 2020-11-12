@@ -1,0 +1,32 @@
+{% extends 'home/layout.html' %}
+  {% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<title>Register</title>
+
+  {% endblock %}
+{% block body %}
+  <section class="register" id="register" >
+    <div class="container mb-5 mt-5">
+        <h1>REGISTER NOW</h1>
+        <div class="card" style="width: 70rem; margin: 0 auto;">
+            <div class="card-body">
+                <h4>Kindly read the following instructions before applying for getting donation</h4>
+                <ul class="reg">
+                    <li>We request you not spam other </li>
+                    <li>Any type  of  </li>
+                  </ul>  
+                  <h4>Terms and Condition</h4>
+                  <ul class="reg">
+                    <li>Your information will be available on our portal.</li>
+                    <li>Your personal details will be shared with others.</li>
+                    <li>Your phone number will be avaiable on our website so that people can contact you</li>
+                  </ul>
+				  <a href="{% url 'receiverform' %}" class="btn servic"> Register </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
