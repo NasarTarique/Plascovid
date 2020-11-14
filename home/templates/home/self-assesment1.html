@@ -9,7 +9,8 @@
 {% block body %}
 
   <div class="container-fluid px-0">
-        <form action="/home/selfassesment/">
+		  <form action="{% url 'selfassesment' %}" method="POST">
+				  {% csrf_token %}
        <div class="row mx-0 pic">
             <div class="col-6 px-0">
             <div class="container">
@@ -28,7 +29,7 @@
                 <div class="input-group mb-2">
                 <div class="input-group-prepend"> <div class="input-group-text"><i class="fa fa-user"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name" value="name">
                 </div>
                 </div>
                 <div class="form-group">
@@ -36,7 +37,7 @@
                 <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-phone"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number" value="phone">
                 </div>
                 </div>
                  <div class="form-group">
@@ -44,7 +45,7 @@
                 <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="age" placeholder="Age">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="age" placeholder="Age" value="age">
                 </div>
                 </div>
           </div>
@@ -57,72 +58,97 @@
 </div>
 </div>
 </div>
-                
+{% if method == 'post' %} 
+		{% if weightsum == 0 %} 
+		<div class="alert alert-success" role="alert">
+				<h2>{{message}}</h2>
+		</div>
+		{% elif weightsum == 1 %}
+
+		<div class="alert alert-primary" role="alert">
+				<h2>{{message}}</h2>
+		</div>
+		{% elif weightsum == 2 %}
+		
+		<div class="alert alert-dark" role="alert">
+				<h2>{{message}}</h2>
+		</div>
+		{% elif weightsum == 3 %}
+
+		<div class="alert alert-danger" role="alert">
+				<h2>{{message}}</h2>
+		</div>
+		{% else %}
+		<div class="alert alert-danger" role="alert">
+				<h2>{{message}}</h2>
+		</div>
+		{% endif %}
+{% endif %}
               <div class="card" style="width: 79rem; margin:0 auto ; height:700px;">
               <div class="card-body">
               <h2 class="card-title">Answer the following Questions Correctly:</h2>
               <p class="card-text">  
               <label for="disease" class="col-form-label">1. Are you Experiencing any of the following symptoms:</label>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease" id="Fever" value="Fever">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Fever" value=1>
                   <label class="custom-control-label" for="Fever">Fever</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease" id="Difficulty in Breathing" value="Difficulty in Breathing">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Difficulty in Breathing" value=2>
                   <label class="custom-control-label" for="Difficulty in Breathing">Difficulty in Breathing</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease" id="Loss" value="Loss of senses of smell and taste">
+                  <input class="custom-control-input" required type="radio" name="disease" id="Loss" value=4>
                   <label class="custom-control-label" for="Loss">Loss of senses of smell and taste</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease" id="None" value="None of the above">
+                  <input class="custom-control-input" required type="radio" name="disease" id="None" value=0>
                   <label class="custom-control-label" for="None">None of the above</label>
                 </div>
                 <br>
               <label for="disease1" class="col-form-label">2. Have you ever had any of the following:</label>
               <br>
               <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease1" id="Diabetes" value="Diabetes">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Diabetes" value=1>
                   <label class="custom-control-label" for="Diabetes">Diabetes</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease1" id="Hyper" value="Hypertension">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Hyper" value=2>
                   <label class="custom-control-label" for="Hyper">Hypertension</label>
                 </div>
                 
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease1" id="Heart" value="Heart Disease">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="Heart" value=2>
                   <label class="custom-control-label" for="Heart">Heart Disease</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease1" id="None of" value="None of the above">
+                  <input class="custom-control-input" required type="radio" name="disease1" id="None of" value=0>
                   <label class="custom-control-label" for="None of">None of the above</label>
                 </div>
                 <br>
               <label for="disease2" class="col-form-label">3. Have you traveled anywhere internationally in the last 28-45 days?</label>
               <br>
               <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease2" id="Yes" value="Yes">
+                  <input class="custom-control-input" required type="radio" name="disease2" id="Yes" value=2>
                   <label class="custom-control-label" for="Yes">Yes</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease2" id="No" value="No">
+                  <input class="custom-control-input" required type="radio" name="disease2" id="No" value=0>
                   <label class="custom-control-label" for="No">No</label>
                 </div>
                <br>
               <label for="disease3" class="col-form-label">4. Which of the following apply to you?</label>
               <br>
               <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease3" id="I have" value="I have recently interacted or lived with someone who has tested positive for COVID -19">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="I have" value=2>
                   <label class="custom-control-label" for="I have">I have recently interacted or lived with someone who has tested positive for COVID -19</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease3" id="I am" value="I am a healthcare worker">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="I am" value=1>
                   <label class="custom-control-label" for="I am">I am a healthcare worker</label>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" required type="radio" name="disease3" id="Above" value="None of the above">
+                  <input class="custom-control-input" required type="radio" name="disease3" id="Above" value=0>
                   <label class="custom-control-label" for="Above">None of the above</label>
                 </div>
                 <br>

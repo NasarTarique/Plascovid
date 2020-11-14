@@ -22,10 +22,26 @@ def index(request):
 # self assement page
 def selfassesment(request):
     if request.method == 'POST':
+        weightsum = int(request.POST.get('disease'))+int(request.POST.get('disease1'))+int(request.POST.get('disease2'))+int(request.POST.get('disease3'))
+        if weightsum == 0:
+            message = "You're  at very low risk"
+        elif weightsum == 1:
+            message = "You're at low risk .But should take precautions"
+        elif weightsum == 2:
+            message = "You're at mild risk .Take precautions and be ready to go to hospitals if you see any symptoms "
+        elif weightsum == 3:
+            message = "You're at risk .Might need assistance of a doctor "
+        else:
+            message = "You're at high risk.Immediate checkup from doctor recommended  "
+            
         return render(request, "home/self-assesment1.html", {
-            "method": 'post'
+            "method": 'post',
+            "message": message,
+            "weightsum": weightsum
         })
-    return render(request, "home/self-assesment1.html")
+    return render(request, "home/self-assesment1.html",{
+        "method": 'get',
+    })
 
 # contact page 
 def contact(request):
