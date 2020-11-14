@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from .models import Hospitals, Donors, Receivers
 from .mail import donormail, mail
 
-from . import config 
 
 # Create your views here.
 
