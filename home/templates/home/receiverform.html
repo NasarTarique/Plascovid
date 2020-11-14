@@ -12,21 +12,14 @@
         <h1>RECEIVER REGISTRATION FORM</h1>
         <div class="card" style="width: 50rem; margin: 0 auto;">
             <div class="card-body">
-                <form action="/reeceiver" method="POST">
+                <form action="/home/rsubmissions" method="POST">
+						{% csrf_token %}
                     <div class="form-group row">
                       <div class="col-12 col-md-3 col-form-label">
                         <label for="name" class="col-form-label">Name of the Patient:</label>
                       </div>
                       <div class="col-12 col-md-9 pt-2">
-                        <input  required type="text" class="form-control" id="name">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-12 col-md-3 col-form-label">
-                        <label for="phone" class="col-form-label">Mobile Number of Patient:</label>
-                      </div>
-                      <div class="col-12 col-md-9 pt-2">
-                        <input required type="tel" class="form-control" id="phone">
+                        <input  required type="text" class="form-control" id="name" name="name">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -34,7 +27,7 @@
                         <label for="age" class="col-form-label">Age of the Patient:</label>
                       </div>
                       <div class="col-12 col-md-9 pt-2">
-                        <input required type="number" class="form-control" id="age">
+                        <input required type="number" class="form-control" id="age" name="age">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -42,7 +35,7 @@
                         <label for="Hospital" class="col-form-label">Name of the Hospital:</label>
                       </div>
                       <div class="col-12 col-md-9 pt-2">
-                        <input required type="text" class="form-control" id="Hospital">
+                        <input required type="text" class="form-control" id="Hospital" name="hospital">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -50,7 +43,7 @@
                           <label for="Address" class="col-form-label">Address of the Patient:</label>
                         </div>
                         <div class="col-12 col-md-9 pt-2">
-                          <input required type="text" class="form-control" id="Address">
+                          <input required type="text" class="form-control" id="Address" name="address">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -58,7 +51,7 @@
                           <label for="City" class="col-form-label">City:</label>
                         </div>
                         <div class="col-12 col-md-9 pt-2">
-                          <input required type="text" class="form-control" id="City">
+                          <input required type="text" class="form-control" id="City" name="city">
                         </div>
                       </div>
                     <div class="form-group row">
@@ -66,7 +59,7 @@
                         <label for="blood" class="col-form-label">Required Blood Group:</label>
                       </div>
                       <div class="col-12 col-md-9 pt-2">
-                        <input required type="text" class="form-control" id="blood">
+                        <input required type="text" class="form-control" id="blood" name="bloodgroup">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -74,7 +67,7 @@
                           <label for="mname" class="col-form-label">Name of the person filling the form:</label>
                         </div>
                         <div class="col-12 col-md-9 pt-2">
-                          <input required type="text" class="form-control" id="mname">
+                          <input required type="text" class="form-control" id="mname" name="caretaker">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -82,7 +75,15 @@
                           <label for="mphone" class="col-form-label">Mobile Number:</label>
                         </div>
                         <div class="col-12 col-md-9 pt-2">
-                          <input required type="tel" class="form-control" id="mphone">
+                          <input required type="tel" class="form-control" id="mphone" name="caretakernumber">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-12 col-md-3 col-form-label">
+                          <label for="mphone" class="col-form-label">Email of the person filling the form :</label>
+                        </div>
+                        <div class="col-12 col-md-9 pt-2">
+                          <input required type="tel" class="form-control" id="mphone" name="caretakermail">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -91,7 +92,7 @@
                         </div>
                         <div class="col-12 col-md-9 col-form-label">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="customFile">
+                          <input type="file" class="custom-file-input" id="customFile" name="hospdata">
                           <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>

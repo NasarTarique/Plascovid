@@ -11,6 +11,9 @@ urlpatterns = [
     path('rregister', views.rregister, name="rregister"),
     path('register', views.register, name="register"),
     path('submissions', views.submissions, name='submissions'),
+    path('rsubmissions', views.rsubmissions, name='rsubmissions'),
     path('donorinfo', views.donorinfo, name='donorinfo'),
+    path('receiverinfo', views.receiverinfo, name='receiverinfo'),
     path('userform', views.userform, name='userform'),
+    path('<int:num>', views.profile, name='profile')
 ]

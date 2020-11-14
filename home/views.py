@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.contrib.auth.models import User
-from .models import Hospitals, Donors
+from .models import Hospitals, Donors, Receivers
+from .mail import donormail, mail
 
-import ssl
-import requests
-from smtplib import SMTP
 from . import config 
 
 # Create your views here.
@@ -32,6 +30,11 @@ def selfassesment(request):
 
 # contact page 
 def contact(request):
+    if request.method == 'POST':
+        subject = f"Mail form plascovid user : {request.POST.get('name')}"
+        body = f"\n{request.POST.get('content')}Email : {request.POST.get('mail')}\n\nPhone : {request.POST.get('phone')}"
+        mail('nasartarique@gmail.com',subject, body)
+        return render(request, "home/contact-us.html")
     return render(request, "home/contact-us.html")
 
 # register for donor
@@ -76,20 +79,57 @@ def submissions(request):
         Donor.save()
         return render(request, "home/donors.html")  
 
+# submissions of receiver form 
+
+def rsubmissions(request):
+    if request.method == 'POST':
+        Receiver = Receivers.objects.create(
+            receiverName=request.POST.get('name'),
+            receiverHospital=request.POST.get('hospital'),
+            receiverAge=request.POST.get('age'),
+            receiverAddress=request.POST.get('address'),
+            receiverCity=request.POST.get('city'),
+            receiverBloodgroup=request.POST.get('bloodgroup'),
+            receiverCaretaker =request.POST.get('caretaker'),
+            receiverCaretakercontact=request.POST.get('caretakernumber'),
+            receiverCaretakeremail=request.POST.get('caretakermail'),
+            receiverDocs=request.POST.get('hopsdata'),
+
+        )
+        Receiver.save()
+        donormail(request.POST.get('city'), request.POST.get('bloodgroup'), Receiver.get_absolute_url())
+        return render(request, "home/donors.html")  
 
 # displaying donor data
 def donorinfo(request):
     if request.method == 'POST':
         query = SearchQuery(request.POST.get('region')) & SearchQuery(request.POST.get('bloodgroup'))
         vector = SearchVector('donorAddress') + SearchVector('donorCity') + SearchVector('donorBloodgroup')
-        documents = Donors.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        documents = Donors.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank').filter(donorBloodgroup=request.POST.get('bloodgroup'))
         return render(request, "home/info.html", {
+            'receiving':False,
             'Donors':documents
         })
     return render(request, "home/info.html", {
+        'receiving':False,
         'Donors': Donors.objects.all()
     })
 
+#  displaying receiver info
+
+def receiverinfo(request):
+    if request.method == 'POST':
+        query = SearchQuery(request.POST.get('region'))
+        vector = SearchVector('receiverAddress') + SearchVector('receiverCity')
+        documents = Receivers.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank').filter(receiverBloodgroup=request.POST.get('bloodgroup'))
+        return render(request, "home/info.html", {
+            'receiving':True,
+            'Receivers':documents
+        })
+    return render(request, "home/info.html", {
+        'receiving':True,
+        'Receivers': Receivers.objects.all()
+    })
 
 # Creation of account 
 def userform(request):
@@ -104,3 +144,11 @@ def userform(request):
     return render(request, "home/userform.html" ,{
         'userexists': False
     })
+
+
+def profile(request, num):
+    receiver = Receivers.objects.get(pk=num)
+    return render(request, "home/profile.html",{
+        'receiver': receiver
+    })
+    

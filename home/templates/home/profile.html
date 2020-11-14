@@ -1,0 +1,33 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+  {% block css %}
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+	<link rel="stylesheet" href="{% static 'home/profile.css' %}">
+	<title> {{receiver.receiverName}}</title>
+  {% endblock %}
+
+{%  block body  %}
+	<div class="profile-container">
+			<div class="profile">
+						<h2>USER INFO</h2>
+						<h4>Patient <span>Details</span> </h4>
+						<div class="patient-info">
+								<p>Patient Name :  <span>{{receiver.receiverName}}</span></p>
+								<p>Age  :  <span>{{receiver.receiverAge}}</span></p>
+								<p>Bloodgroup   :  <span>{{receiver.receiverBloodgroup}}</span></p>
+								<p>Hospital   :  <span>{{receiver.receiverHospital}}</span></p>
+								<p>Residence Address   :  <span>{{receiver.receiverAddress}}</span></p>
+								
+			</div>
+						<h4>Contact <span>Details</span> </h4>
+			<div class="contact-info">
+
+								<p>Name of the Caretaker  :  <span>{{receiver.receiverCaretaker}}</span></p>
+								<p>Caretaker Mail :  <span>{{receiver.receiverCaretakermail}}</span></p>
+								<p>Caretaker Numbek :  <span>{{receiver.receiverCaretakercontact}}</span></p>
+			</div>
+			</div>
+	</div>
+{% endblock %}
+

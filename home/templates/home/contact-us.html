@@ -7,7 +7,7 @@
 
   {% endblock %}
 {% block body %}
-  <section class="contact-us" id="contact-us">
+  <section class="contact-us" id="contact-us" style="min-height:70vh">
   <div class="container">
     <div class="row mt-5">
       <div class="col-xl-6">
@@ -15,13 +15,14 @@
       </div>
       <div class="col-xl-6">
         <h1 class="feedback">Contact Us</h1>
-<form action="/contact-us" method="POST">
+<form action="/home/contact" method="POST">
+		{% csrf_token %}
 <div class="form-group">
 <div class="input-group mb-2">
 <div class="input-group-prepend">
 <div class="input-group-text"><i class="fa fa-user"></i></div>
 </div>
-<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[name]" placeholder="Name">
+<input required type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name">
 </div>
 </div>
 <div class="form-group">
@@ -29,7 +30,7 @@
 <div class="input-group-prepend">
 <div class="input-group-text"><i class="fa fa-envelope"></i></div>
 </div>
-<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[companyName]" placeholder="Email Adress">
+<input required type="text" class="form-control" id="inlineFormInputGroup" name="email" placeholder="Email Adress">
 </div>
 </div>
 <div class="form-group">
@@ -37,7 +38,7 @@
 <div class="input-group-prepend">
 <div class="input-group-text"><i class="fa fa-phone"></i></div>
 </div>
-<input type="text" class="form-control" id="inlineFormInputGroup" name="testimonials[designation]" placeholder="Phone Number">
+<input  required type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number">
 </div>
 </div>
 <div class="form-group">
@@ -45,10 +46,10 @@
 <div class="input-group-prepend">
 <div class="input-group-text"><i class="fa fa-edit"></i></div>
 </div>
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="testimonials[testimonial]" placeholder="Suggestions/Complaints/Feedback"></textarea>
+<textarea required class="form-control" id="exampleFormControlTextarea1" rows="3" name="content" placeholder="Suggestions/Complaints/Feedback"></textarea>
 </div>
 </div>
-<button type="submit" class="buttt">Submit</button>
+<input type="submit" class="btn btn-danger" value="Submit">
 <br>
 <br>
 </form>       
@@ -58,5 +59,5 @@
 
 
   </div>
-
+ </section>
   {% endblock %}

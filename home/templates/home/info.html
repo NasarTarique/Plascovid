@@ -8,6 +8,44 @@
   {% endblock %}
 
 {%  block body  %}
+
+{% if receiving == True %}
+<div class="cardContainer" style="width:1100px;display:grid;align-items:center;margin:auto;justify-content:center">
+		<form action="{% url 'receiverinfo' %}" method="POST">
+				{% csrf_token %}
+<div class="input-group">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" placeholder="Region or City" aria-label="Region/City" class="form-control" name="region" required="true">
+   <select class="custom-select" id="inputGroupSelect01" name="bloodgroup" required="true">
+    <option selected>Bloodgroup</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </select>
+  <input type="submit" class="btn btn-success" value="Search">
+</div>
+</form>
+{% for receiver  in Receivers %}
+<div class="card text-center" style="width: 30rem;margin:1em">
+  <div class="card-body">
+		  <h4 class="card-title">{{receiver.receiverName}}</h4>
+		  <p class="card-text" style="font-weight:Bolder;color:#0069D9">Address :</p>
+		  <p class="card-text">{{receiver.receiverAddress}}</p>
+		  <p class="card-text" style="font-weight:Bolder;color:#0069D9">Blood Group :</p>
+		  <p class="card-text">{{receiver.receiverBloodgroup}}</p>
+		  <p class="card-text" style="font-weight:Bolder;color:#0069D9">City  :</p>
+		  <p class="card-text">{{receiver.receiverCity}}</p>
+		  <a href="{{receiver.get_absolute_url}}" class="btn btn-success">Contact</a>
+  </div>
+</div>
+{% endfor %}
+{% else %}
 <div class="cardContainer" style="width:1100px;display:grid;align-items:center;margin:auto;justify-content:center">
 		<form action="{% url 'donorinfo' %}" method="POST">
 				{% csrf_token %}
@@ -29,7 +67,6 @@
   <input type="submit" class="btn btn-success" value="Search">
 </div>
 </form>
-
 {% for donor in Donors%}
 <div class="card text-center" style="width: 30rem;margin:1em">
   <div class="card-body">
@@ -45,6 +82,7 @@
   </div>
 </div>
 {% endfor %}
+{% endif %}
 </div>
 {% endblock %}
 

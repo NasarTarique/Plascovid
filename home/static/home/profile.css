@@ -1,0 +1,30 @@
+.profile-container{
+		height:85vh;
+		width:100%;
+}
+
+.profile{
+		margin:auto;
+		max-width:1000px;
+		background-color:white;
+		text-align:center;
+}
+.patient-info,.contact-info{
+		padding:2rem;
+		text-align:left;
+
+
+}
+.profile>h2{
+		font-weight:Bold;
+}
+.profile>h4{
+		font-weight:Bold;
+}
+.profile>span{
+		color:#395ACE;
+}
+.patient-info,.contact-info>p{
+		font-size:20px;
+		font-weight:Bold;
+}
