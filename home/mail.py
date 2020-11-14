@@ -17,7 +17,7 @@ def mail(mail, subject, body):
         Body = body
         msg = f"Subject:{Subject}\n\n{Body}"
         EMAIL_ADDRESS = os.environ.get('EMAIL')
-        EMAIL_PWD = os.environ.get('PWD')
+        EMAIL_PWD = os.environ.get('EMAIL_PWD')
         smtp.login(EMAIL_ADDRESS, EMAIL_PWD)
         smtp.sendmail(EMAIL_ADDRESS, mail, msg)
 
