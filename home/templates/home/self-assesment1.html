@@ -3,10 +3,27 @@
   {% block css %}
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'home/app.css' %}">
+	<link rel="stylesheet" href="{% static 'home/selfasses.css' %}">
 <title>Self Assesment </title>
+<script src="{% static 'home/selfas.js' %}"></script>
 
   {% endblock %}
 {% block body %}
+
+{% if method == 'post' %} 
+<!--Popup-->
+<div class="popup-container" id="popup-container">
+<div class="popup">
+		<div class="close-button" id="close-btn">
+				+
+		</div>
+		<div class="result" style="color:{{color}}">
+				<h1>{{message|upper}}</h1>
+		</div>
+</div>
+</div>
+{% endif %}
+
 
   <div class="container-fluid px-0">
 		  <form action="{% url 'selfassesment' %}" method="POST">
@@ -29,7 +46,7 @@
                 <div class="input-group mb-2">
                 <div class="input-group-prepend"> <div class="input-group-text"><i class="fa fa-user"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name" value="name">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="name" placeholder="Name" >
                 </div>
                 </div>
                 <div class="form-group">
@@ -37,7 +54,7 @@
                 <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-phone"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number" value="phone">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="phone" placeholder="Phone Number" >
                 </div>
                 </div>
                  <div class="form-group">
@@ -45,7 +62,7 @@
                 <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user"></i></div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="age" placeholder="Age" value="age">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="age" placeholder="Age" >
                 </div>
                 </div>
           </div>
@@ -58,32 +75,6 @@
 </div>
 </div>
 </div>
-{% if method == 'post' %} 
-		{% if weightsum == 0 %} 
-		<div class="alert alert-success" role="alert">
-				<h2>{{message}}</h2>
-		</div>
-		{% elif weightsum == 1 %}
-
-		<div class="alert alert-primary" role="alert">
-				<h2>{{message}}</h2>
-		</div>
-		{% elif weightsum == 2 %}
-		
-		<div class="alert alert-dark" role="alert">
-				<h2>{{message}}</h2>
-		</div>
-		{% elif weightsum == 3 %}
-
-		<div class="alert alert-danger" role="alert">
-				<h2>{{message}}</h2>
-		</div>
-		{% else %}
-		<div class="alert alert-danger" role="alert">
-				<h2>{{message}}</h2>
-		</div>
-		{% endif %}
-{% endif %}
               <div class="card" style="width: 79rem; margin:0 auto ; height:700px;">
               <div class="card-body">
               <h2 class="card-title">Answer the following Questions Correctly:</h2>

@@ -15,5 +15,6 @@ urlpatterns = [
     path('donorinfo', views.donorinfo, name='donorinfo'),
     path('receiverinfo', views.receiverinfo, name='receiverinfo'),
     path('userform', views.userform, name='userform'),
-    path('<int:num>', views.profile, name='profile')
+    path('<int:num>', views.profile, name='profile'),
+    path('donorcontact', views.donorcontact, name='donorcontact')
 ]

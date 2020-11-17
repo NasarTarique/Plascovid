@@ -17,27 +17,34 @@ def index(request):
             "results": documents,
             "method": 'post'
         })
-    return render(request, "home/index.html")
+    return render(request, "home/index.html") 
 
 # self assement page
 def selfassesment(request):
     if request.method == 'POST':
         weightsum = int(request.POST.get('disease'))+int(request.POST.get('disease1'))+int(request.POST.get('disease2'))+int(request.POST.get('disease3'))
+        color = ''
         if weightsum == 0:
             message = "You're  at very low risk"
+            color = 'green'
         elif weightsum == 1:
             message = "You're at low risk .But should take precautions"
+            color = 'blue'
         elif weightsum == 2:
             message = "You're at mild risk .Take precautions and be ready to go to hospitals if you see any symptoms "
+            color = 'purple'
         elif weightsum == 3:
             message = "You're at risk .Might need assistance of a doctor "
+            color = 'pink'
         else:
             message = "You're at high risk.Immediate checkup from doctor recommended  "
+            color = 'red'
             
         return render(request, "home/self-assesment1.html", {
             "method": 'post',
             "message": message,
-            "weightsum": weightsum
+            "weightsum": weightsum,
+            "color":color
         })
     return render(request, "home/self-assesment1.html",{
         "method": 'get',
@@ -122,30 +129,59 @@ def donorinfo(request):
         vector = SearchVector('donorAddress') + SearchVector('donorCity') + SearchVector('donorBloodgroup')
         documents = Donors.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank').filter(donorBloodgroup=request.POST.get('bloodgroup'))
         return render(request, "home/info.html", {
-            'receiving':False,
-            'Donors':documents
+            'receiving': False,
+            'Donors': documents
         })
     return render(request, "home/info.html", {
-        'receiving':False,
+        'receiving': False,
         'Donors': Donors.objects.all()
     })
 
-#  displaying receiver info
-
+# displaying receiver info
 def receiverinfo(request):
     if request.method == 'POST':
         query = SearchQuery(request.POST.get('region'))
         vector = SearchVector('receiverAddress') + SearchVector('receiverCity')
         documents = Receivers.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank').filter(receiverBloodgroup=request.POST.get('bloodgroup'))
         return render(request, "home/info.html", {
-            'receiving':True,
-            'Receivers':documents
+            'receiving': True,
+            'Receivers': documents
         })
     return render(request, "home/info.html", {
-        'receiving':True,
+        'receiving': True,
         'Receivers': Receivers.objects.all()
     })
 
+# donor contact 
+def donorcontact(request):
+    if request.method == 'POST':
+          if Receivers.objects.filter(receiverCaretakeremail=request.POST.get('email')):
+            receiver = Receivers.objects.filter(receiverCaretakeremail=request.POST.get('email'))[0]
+            receiverlink = receiver.get_absolute_url()
+            donorcontacted = Donors.objects.filter(pk=int(request.POST.get('pk')))[0]
+            subject = "Plascovid : In  need of plasma donation"
+            msgDonor = f"\n\n Someone has requested for plasma donation . Check their profile in the link below \n\n  https://postgres-app1507.herokuapp.com/{receiverlink} \n\n {receiver.receiverCaretakeremail}" 
+            mail(donorcontacted.donorMail, subject, msgDonor)
+            message = "The Donor has been requested for plasma . The donor may respond to you if he is willing to donate plasma"
+            return render(request, "home/info.html", {
+                "method":'post',
+                'receiving':False,
+                'Donors': Donors.objects.all(),
+                "message":message
+            })
+          else:
+            message = "Please use the email id you have used to register as a Receiver .\n If you have not registered head over to the below link to register the patient"
+            return render(request, "home/info.html",{
+                "method":'post',
+                'receiving':False,
+                'Donors': Donors.objects.all(),
+                'mailnotmatched':True,
+                'message': message
+            })
+    else:
+        return redirect('donorinfo')
+    
+            
 # Creation of account 
 def userform(request):
     if request.method == 'POST':

@@ -37,7 +37,6 @@ class Hospitals(models.Model):
 class Donors(models.Model):
     donorName = models.CharField(max_length=50)
     donorMobile = models.CharField(max_length=15)
-    # donorMail = models.CharField(max_length=30, default='nasartarique@gmail.com')
     donorMail = models.CharField(max_length=30)
     donorAge = models.IntegerField()
     donorAddress = models.TextField(max_length=150)
