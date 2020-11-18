@@ -1,0 +1,53 @@
+{% extends 'home/layout.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/app.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+{% endblock %}
+
+{% block body %}
+  <section class="hospital" id="hospital">
+      <h1>Not able to find a COVID hospital?</h1>
+      <div class="row pic">
+      </div>
+      <h1>Search and find the nearest Hospital available to you</h1>
+      <div class="card" style="width: 50rem; margin: 0 auto;">
+  <div class="card-body">
+    <h5 class="card-title">Hospitals for COVID-19</h5>
+    <p class="card-text">
+    <form action="{% url 'hospital' %}" method="POST">
+			{% csrf_token %}
+    <div class="form-group">
+   <label for="usr">Enter your Location or Name of the Hospital</label>
+    <input type="text" class="form-control" id="usr" name="query">
+    </div>
+    <input class="btn servicc" type="submit" value="SEARCH">
+  </div></form>
+</div>
+{% if method == 'post' %}
+		<div class="Hospitals" >
+		<div class="card-deck">
+		{% for result in results %}
+				<div class="card text-white bg-primary mb-3" data-aos="flip-left" style="max-width: 18rem;">
+				  <div class="card-header">Hospital</div>
+				  <div class="card-body">
+						  <h5 class="card-title">{{result.hospitalName}}</h5>
+						  <p class="card-text">{{result.hospitalAddress}}</p>
+						  <p class="card-text"><p class="font-weight-bold">Contact : {{result.hospitalContact}}</p></p>
+				  </div>
+				</div>
+		{% endfor %}
+		</div></div>
+
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+		  AOS.init({
+				  offset:100,
+				  duration:1000,
+				  anchorPlacement:'top-bottom'
+		  });
+  </script>
+{% endif %}
+  </section>
+{% endblock %}

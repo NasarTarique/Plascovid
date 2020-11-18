@@ -12,7 +12,7 @@
         <h1>RECEIVER REGISTRATION FORM</h1>
         <div class="card" style="width: 50rem; margin: 0 auto;">
             <div class="card-body">
-                <form action="/home/rsubmissions" method="POST">
+					<form action="{% url 'rsubmissions' %}" method="POST">
 						{% csrf_token %}
                     <div class="form-group row">
                       <div class="col-12 col-md-3 col-form-label">

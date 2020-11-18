@@ -3,34 +3,27 @@
 	   width:100%;
 	   position:absolute;
 	   background-color:rgba(0,0,0,0.8);
-	   display:grid;
-	   place-items:center;
 	   z-index:10;
+	   display:block
 }
 .popup{
+		top:25%;
 		background-color:white;
+		margin:auto;
 		width:900px;
-		min-height:300px;
-		position:absolute;
+		position:relative;
 		font-size:30px;
 		font-weight:1000;
-		display:grid;
-		justify-content:center;
-		align-items:center;
 }
 .result{
 		text-align:center;
-
-
+		padding:2rem;
 }
 .close-button{
-
-
+		position:absolute;
 		top:0;
 		right:10px;
-		color:red;
 		font-size: 40px;
 		transform:rotate(45deg);
 		cursor:pointer;
-
 }

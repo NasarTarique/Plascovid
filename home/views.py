@@ -9,14 +9,6 @@ from .mail import donormail, mail
 
 # home page
 def index(request):
-    if request.method == 'POST':
-        query = SearchQuery(request.POST.get('query'))
-        vector = SearchVector('hospitalName') + SearchVector('hospitalAddress')
-        documents = Hospitals.objects.annotate(search=vector).filter(search=query)
-        return render(request, "home/index.html", {
-            "results": documents,
-            "method": 'post'
-        })
     return render(request, "home/index.html") 
 
 # self assement page
@@ -54,8 +46,8 @@ def selfassesment(request):
 def contact(request):
     if request.method == 'POST':
         subject = f"Mail form plascovid user : {request.POST.get('name')}"
-        body = f"\n{request.POST.get('content')}Email : {request.POST.get('mail')}\n\nPhone : {request.POST.get('phone')}"
-        mail('nasartarique@gmail.com',subject, body)
+        body = f"\nContent:{request.POST.get('content')}\n\nEmail : {request.POST.get('email')}\n\nPhone : {request.POST.get('phone')}"
+        mail('teamplascovid@gmail.com',subject, body)
         return render(request, "home/contact-us.html")
     return render(request, "home/contact-us.html")
 
@@ -91,7 +83,7 @@ def submissions(request):
             donorAge=request.POST.get('age'),
             donorAddress=request.POST.get('address'),
             donorCity=request.POST.get('city'),
-            donorBloodgroup=request.POST.get('blood'),
+            donorBloodgroup=request.POST.get('bloodgroup'),
             donorSex=request.POST.get('sex'),
             donorCovidrecord=request.POST.get('covid'),
             donorScreening=request.POST.get('date'),
@@ -202,4 +194,20 @@ def profile(request, num):
     return render(request, "home/profile.html",{
         'receiver': receiver
     })
-    
+
+
+# about us 
+def about(request):
+    return render(request, "home/about.html")
+
+# hospital tracker 
+def hospital(request):
+    if request.method == 'POST':
+        query = SearchQuery(request.POST.get('query'))
+        vector = SearchVector('hospitalName') + SearchVector('hospitalAddress')
+        documents = Hospitals.objects.annotate(search=vector).filter(search=query)
+        return render(request, "home/hospital.html", {
+            "results": documents,
+            "method": 'post'
+        })
+    return render(request, "home/hospital.html")

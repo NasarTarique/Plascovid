@@ -30,7 +30,7 @@
 				  <a class="nav-link" href="{% url 'index' %}">Home</a>
           </li>
           <li class = "nav-item active mx-3 mx-xl-2">
-				  <a href="{% url 'index' %}" class="nav-link">Hospital Tracker</a>
+				  <a href="{% url 'hospital' %}" class="nav-link">Hospital Tracker</a>
           </li>
           <li class = "nav-item active mx-3 mx-xl-2">
 				  <a class="nav-link" href="{% url 'register' %}">Plasma Donation</a>
@@ -42,13 +42,13 @@
 				  <a class="nav-link" href="{% url 'rregister' %}">Get Plasma</a>
           </li>
            <li class = "nav-item active mx-3 mx-xl-2">
-            <a class="nav-link" href="">About us</a>
-          </li>
-           <li class = "nav-item active mx-3 mx-xl-2">
 				   <a class="nav-link" href="{% url 'receiverinfo' %}"> Receivers </a>
           </li>
            <li class = "nav-item active mx-3 mx-xl-2">
 				   <a class="nav-link" href="{% url 'donorinfo' %}"> Donors </a>
+          </li>
+           <li class = "nav-item active mx-3 mx-xl-2">
+				   <a class="nav-link" href="{% url 'about' %}">About us</a>
           </li>
            <li class = "nav-item active mx-3 mx-xl-2">
 				   <a class="nav-link" href="{% url 'contact'%}">Contact us</a>
@@ -68,7 +68,6 @@
       </div>
     </nav>
   </div>
-  <br>
   {% block body %}
   {% endblock %}
 

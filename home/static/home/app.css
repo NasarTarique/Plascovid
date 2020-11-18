@@ -1,18 +1,29 @@
+a {
+    color: white;
+}
+.news-scroll a {
+    color: black;
+}
 body{
-    background: peachpuff;
+    background: #f1f6f9;
     font-family: "Nunito", sans-serif;
 }
 
+
+
+.nav-item{
+    color: white;
+}
 #ban{
     font-size: 8rem;
     text-align: center;
-
 }
 .font_4
 {
     font: normal normal normal 80px/1.6em 'arial black',arial-w01-black,arial-w02-black,'arial-w10 black',sans-serif;
     color: #000066;
-    text-align: center; padding-bottom: 15px;
+    text-align: center;
+    padding-bottom: 15px;
    
 }
 
@@ -67,6 +78,7 @@ footer {
     height: 200px;
     background-color: #222f4b;
     padding: 20px;
+    margin-top: 40px;
 }
 .sub-footer {
     background-color: white;
@@ -112,6 +124,13 @@ form
 }
 
 .pic 
+{
+    display:block;
+    background: url(https://image.freepik.com/free-photo/top-view-world-heart-day-stethoscope-with-copy-space_23-2148630953.jpg) no-repeat center/cover;
+    height: 30vh;
+
+}
+.pic1
 {
     display:block;
     background: url(https://image.freepik.com/free-photo/top-view-world-heart-day-stethoscope-with-copy-space_23-2148630953.jpg) no-repeat center/cover;
@@ -257,8 +276,51 @@ p
 .card {
     box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
 }
+.fnq a {
+    font-size: 2rem;
+    font-weight: 900;
+    color: black;
+    cursor: pointer;
+}
+.font {
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.hospital h4 {
+    font-family: 'Secular One', sans-serif;
+    color: red;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hospital h1{
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.picc {
+    background: url(https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/06/aiims-1592918417.jpg) no-repeat center/cover;
+    height: 100vh;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 .Hospitals{
 		display:grid;
+		padding:1rem;
 		margin-top:1em;
 		align-self:center;
 		max-width:1200px;
