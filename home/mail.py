@@ -25,7 +25,7 @@ def mail(mail, subject, body):
 def donormail(city, bloodgroup, link):
     donorlist = Donors.objects.filter(donorCity__iexact=city).filter(donorBloodgroup=bloodgroup)
     subject =  "In need of plasma donation"
-    body = f"Hey we have got someone you can donate too {link}"
+    body = f"Hey we have got someone you can donate too https://postgres-app1507.herokuapp.com{link}"
     for donor in donorlist:
         mail(donor.donorMail, subject, body)
         
