@@ -87,11 +87,12 @@ def submissions(request):
             donorSex=request.POST.get('sex'),
             donorCovidrecord=request.POST.get('covid'),
             donorScreening=request.POST.get('date'),
-            donorStatus=request.POST.get('plasma'),
 
         )
         Donor.save()
-        return render(request, "home/donors.html")  
+        return render(request, "home/donors.html",{
+            'donor':True
+        })  
 
 # submissions of receiver form 
 
@@ -112,7 +113,9 @@ def rsubmissions(request):
         )
         Receiver.save()
         donormail(request.POST.get('city'), request.POST.get('bloodgroup'), Receiver.get_absolute_url())
-        return render(request, "home/donors.html")  
+        return render(request, "home/donors.html",{
+            "donor":False
+        })  
 
 # displaying donor data
 def donorinfo(request):

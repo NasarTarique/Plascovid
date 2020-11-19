@@ -45,7 +45,6 @@ class Donors(models.Model):
     donorSex = models.CharField(max_length=1, choices=sex)
     donorCovidrecord = models.CharField(max_length=1, choices=status)
     donorScreening = models.DateField()
-    donorStatus = models.CharField(max_length=1, choices=status)
 
 
 class Receivers(models.Model):

@@ -3,7 +3,6 @@
   {% block css %}
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'home/app.css' %}">
-<title>Donor Form</title>
 
   {% endblock %}
 
@@ -11,11 +10,22 @@
 <div class="message" style="height:85vh; width:1200px; display:grid;margin:auto">
 <div class="card text-center" style="margin:auto">
   <div class="card-body">
+		  {% if donor == True %}
+		  <title>donorform</title>
 <h5 class="card-title">You're Awesome</h5>
     <h5 class="card-title">Thank You for Applying as a Donor </h5>
 	<p class="card-text">We will notify if there are people who need help or you could come to our site and see if you can help someone out </p>
 	<p class="card-text">We need more people like you in these trying times</p>
 	<a href="{% url 'receiverinfo' %}" class="btn btn-primary">See who needs help</a>
+	{% else %}
+		  <title>receiverform</title>
+    <h5 class="card-title">You have  applied for getting Plasma Donation  </h5>
+	<p class="card-text">A message has been sent to all the donors who reside in the same region as .</p>
+	<p class="card-text">You can go to the Donors page to see the donors and contact them manually</p>
+	<a href="{% url 'donorinfo' %}" class="btn btn-primary">See the Donors</a>
+
+
+	{% endif %}
   </div>
 </div></div>
 {% endblock %}

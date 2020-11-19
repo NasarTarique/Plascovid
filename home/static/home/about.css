@@ -39,7 +39,7 @@ body{
 		color:#50d890;
 }
 .about-container p{
-		font-size:2rem;
+		font-size:1.4rem;
 }
 
 .devlopers-container{
@@ -86,7 +86,7 @@ body{
 		letter-spacing:2px;
 }
 .dev-details p{
-		font-size:1.5rem;
+		font-size:1rem;
 		padding-bottom:1rem;
 }
 .devtwo img{
@@ -107,5 +107,11 @@ body{
 				padding-right:0;
 				padding-top:1rem;
 				padding-left:0;
+		}
+		.about-container h1{
+				font-size:3rem;
+		}
+		.dev-heading h1{
+				font-size:3rem;
 		}
 }
