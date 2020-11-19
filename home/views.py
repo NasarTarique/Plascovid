@@ -79,6 +79,7 @@ def submissions(request):
     if request.method == 'POST':
         Donor = Donors.objects.create(
             donorName=request.POST.get('name'),
+            donorMail=request.POST.get('mail'),
             donorMobile=request.POST.get('phone'),
             donorAge=request.POST.get('age'),
             donorAddress=request.POST.get('address'),
