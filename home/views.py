@@ -156,7 +156,7 @@ def donorcontact(request):
             receiverlink = receiver.get_absolute_url()
             donorcontacted = Donors.objects.filter(pk=int(request.POST.get('pk')))[0]
             subject = "Plascovid : In  need of plasma donation"
-            msgDonor = f"\n\n Someone has requested for plasma donation . Check their profile in the link below \n\n  https://postgres-app1507.herokuapp.com/{receiverlink} \n\n {receiver.receiverCaretakeremail}" 
+            msgDonor = f"\n\n Someone has requested for plasma donation . Check their profile in the link below \n\n  https://postgres-app1507.herokuapp.com{receiverlink} \n\n {receiver.receiverCaretakeremail}" 
             mail(donorcontacted.donorMail, subject, msgDonor)
             message = "The Donor has been requested for plasma . The donor may respond to you if he is willing to donate plasma"
             return render(request, "home/info.html", {
